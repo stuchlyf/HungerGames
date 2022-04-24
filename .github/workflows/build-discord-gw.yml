@@ -1,0 +1,16 @@
+name: Build Discord Gateway
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ./hunger-games-discord-gw/**
+    
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/build-discord-gw

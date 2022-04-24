@@ -1,18 +1,12 @@
 name: Build Discord Gateway
 
 on:
-  workflow_dispatch:
   workflow_call:
     secrets:
       SONAR_TOKEN:
         required: true
       SONAR_HOST_URL:
         required: true
-  push:
-    branches:
-      - main
-    paths:
-      - ./hunger-games-discord-gw/**
 
 jobs:
   build:
