@@ -1,5 +1,12 @@
-name: Build
+name: Build Discord Gateway
+
 on:
+  workflow_dispatch:
+    secrets:
+      SONAR_TOKEN:
+        required: true
+      SONAR_HOST_URL:
+        required: true
   workflow_call:
     secrets:
       SONAR_TOKEN:
@@ -14,7 +21,7 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: Build Discord Gateway
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
