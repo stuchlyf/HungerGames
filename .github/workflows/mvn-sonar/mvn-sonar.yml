@@ -1,0 +1,52 @@
+name: Run SonarQube with Maven
+
+on: 
+  workflow_call: 
+    inputs: 
+      SONAR_TOKEN:
+        required: true
+        type: string
+      SONAR_HOST_URL:
+        required: true
+        type: string
+      GITHUB_TOKEN:
+        required: true
+        type: string
+      RUNNER_OS:
+        required: true
+        type: string
+      MODULE:
+        required: true
+        type: string
+      JDK_VERSION:
+        required: false
+        default: 17
+        type: string
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up JDK 17
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ JDK_VERSION }}
+      - name: Cache SonarQube packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.sonar/cache
+          key: ${{ RUNNER_OS }}-sonar
+          restore-keys: ${{ RUNNER_OS }}-sonar
+      - name: Cache Maven packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.m2
+          key: ${{ RUNNER_OS }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ RUNNER_OS }}-m2
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: ${{ GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ SONAR_HOST_URL }}
+        run: cd ./${{ MODULE }} && mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=${{ MODULE }}
