@@ -24,9 +24,9 @@ jobs:
       - name: SonarPhase
         uses: ./.github/workflows/mvn-sonar
         with: 
-          SONAR_TOKEN: ${{ inputs.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ inputs.SONAR_HOST_URL }}
-          GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
-          RUNNER_OS: ${{ inputs.RUNNER_OS }}
+          SONAR_TOKEN: ${{ SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ SONAR_HOST_URL }}
+          GITHUB_TOKEN: ${{ GITHUB_TOKEN }}
+          RUNNER_OS: ${{ RUNNER_OS }}
           MODULE: hunger-games-backend
           JDK_VERSION: 17
