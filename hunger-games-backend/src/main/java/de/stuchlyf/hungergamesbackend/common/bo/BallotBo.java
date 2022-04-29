@@ -2,7 +2,7 @@ package de.stuchlyf.hungergamesbackend.common.bo;
 
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -21,7 +21,7 @@ public class BallotBo {
 	
 	private Set<VoteBo> votes = new LinkedHashSet<>();
 	
-	private LocalDateTime startDate;
+	private OffsetDateTime startDate;
 	
-	private LocalDateTime endDate;
+	private OffsetDateTime endDate;
 }

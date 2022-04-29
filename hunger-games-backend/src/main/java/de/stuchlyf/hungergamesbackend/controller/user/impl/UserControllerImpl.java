@@ -2,10 +2,9 @@ package de.stuchlyf.hungergamesbackend.controller.user.impl;
 
 import de.stuchlyf.hungergamesbackend.common.mapper.UserMapper;
 import de.stuchlyf.hungergamesbackend.common.mapper.UuidMapper;
-import de.stuchlyf.hungergamesbackend.common.to.UserTo;
 import de.stuchlyf.hungergamesbackend.controller.user.UserController;
 import de.stuchlyf.hungergamesbackend.service.user.UserService;
-import org.mapstruct.factory.Mappers;
+import de.stuchlyf.hungergamesbackend.to.UserTo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,11 +18,12 @@ import java.util.Set;
 public class UserControllerImpl implements UserController {
 
 	private final UserService userSvc;
-	private final UserMapper userMapper = Mappers.getMapper(UserMapper.class);
+	private final UserMapper userMapper;
 
 	@Autowired
-	public UserControllerImpl(UserService userSvc) {
+	public UserControllerImpl(UserService userSvc, UserMapper userMapper) {
 		this.userSvc = userSvc;
+		this.userMapper = userMapper;
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 package de.stuchlyf.hungergamesbackend.controller.restaurant;
 
-import de.stuchlyf.hungergamesbackend.common.to.RestaurantTo;
+import de.stuchlyf.hungergamesbackend.to.RestaurantTo;
 import org.springframework.http.ResponseEntity;
 
 import java.util.Set;

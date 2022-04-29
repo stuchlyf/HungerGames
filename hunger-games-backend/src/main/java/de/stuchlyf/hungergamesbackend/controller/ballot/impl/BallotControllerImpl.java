@@ -1,10 +1,10 @@
 package de.stuchlyf.hungergamesbackend.controller.ballot.impl;
 
 import de.stuchlyf.hungergamesbackend.common.mapper.BallotMapper;
-import de.stuchlyf.hungergamesbackend.common.to.BallotTo;
 import de.stuchlyf.hungergamesbackend.controller.ballot.BallotController;
 import de.stuchlyf.hungergamesbackend.service.ballot.BallotService;
-import org.mapstruct.factory.Mappers;
+import de.stuchlyf.hungergamesbackend.to.BallotTo;
+import io.swagger.annotations.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,15 +18,17 @@ import java.util.Set;
 public class BallotControllerImpl implements BallotController {
 	
 	private final BallotService ballotSvc;
-	private final BallotMapper ballotMapper = Mappers.getMapper(BallotMapper.class);
+	private final BallotMapper ballotMapper;
 
 	@Autowired
-	public BallotControllerImpl(BallotService ballotSvc) {
+	public BallotControllerImpl(BallotService ballotSvc, BallotMapper ballotMapper) {
 		this.ballotSvc = ballotSvc;
+		this.ballotMapper = ballotMapper;
 	}
 
 	@Override
 	@GetMapping("ballots")
+	@ApiResponse(code = 200, message = "")
 	public ResponseEntity<Set<BallotTo>> getAllBallots() {
 		final var bos = ballotSvc.readAllBallots();
 		final var tos = new HashSet<>(ballotMapper.ballotBosToBallotTos(bos));

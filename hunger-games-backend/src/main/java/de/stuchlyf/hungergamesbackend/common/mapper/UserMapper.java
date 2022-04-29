@@ -1,19 +1,17 @@
 package de.stuchlyf.hungergamesbackend.common.mapper;
 
 import de.stuchlyf.hungergamesbackend.common.bo.UserBo;
-import de.stuchlyf.hungergamesbackend.common.to.UserTo;
+import de.stuchlyf.hungergamesbackend.to.UserTo;
 import de.stuchlyf.hungergamesbackend.persistence.entity.UserEty;
 import org.mapstruct.InheritInverseConfiguration;
+import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.factory.Mappers;
 
 import java.util.Collection;
 
-@Mapper(componentModel = "spring", config = BaseConfig.class)
+@Mapper(injectionStrategy = InjectionStrategy.CONSTRUCTOR, componentModel = "spring", config = BaseConfig.class)
 public interface UserMapper {
-
-	UserMapper MAPPER = Mappers.getMapper(UserMapper.class);
 
 	/**
 	 * <b>({@link UserEty} => {@link UserBo})</b><br/>

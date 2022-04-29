@@ -1,0 +1,675 @@
+{
+	"openapi": "3.0.1",
+	"info": {
+		"title": "OpenAPI definition",
+		"version": "v0"
+	},
+	"servers": [
+		{
+			"url": "http://localhost:8080/hunger-games/api",
+			"description": "Generated server url"
+		}
+	],
+	"paths": {
+		"/vote-service/vote/{id}": {
+			"get": {
+				"tags": [
+					"vote-controller-impl"
+				],
+				"operationId": "getVote",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/VoteTo"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"vote-controller-impl"
+				],
+				"operationId": "putVote",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/VoteTo"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/VoteTo"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"vote-controller-impl"
+				],
+				"operationId": "deleteVote",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/user-service/user/{id}": {
+			"get": {
+				"tags": [
+					"user-controller-impl"
+				],
+				"operationId": "getUser",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/UserTo"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"user-controller-impl"
+				],
+				"operationId": "putUser",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UserTo"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/UserTo"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"user-controller-impl"
+				],
+				"operationId": "deleteUser",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/restaurant-service/restaurant/{id}": {
+			"get": {
+				"tags": [
+					"restaurant-controller-impl"
+				],
+				"operationId": "getRestaurant",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/RestaurantTo"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"restaurant-controller-impl"
+				],
+				"operationId": "putRestaurant",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/RestaurantTo"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/RestaurantTo"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"restaurant-controller-impl"
+				],
+				"operationId": "deleteRestaurant",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/ballot-service/ballot/{id}": {
+			"get": {
+				"tags": [
+					"ballot-controller-impl"
+				],
+				"operationId": "getBallot",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/BallotTo"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"ballot-controller-impl"
+				],
+				"operationId": "putBallot",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/BallotTo"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/BallotTo"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"ballot-controller-impl"
+				],
+				"operationId": "deleteBallot",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/vote-service/vote": {
+			"post": {
+				"tags": [
+					"vote-controller-impl"
+				],
+				"operationId": "postVote",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/VoteTo"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/VoteTo"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/user-service/user": {
+			"post": {
+				"tags": [
+					"user-controller-impl"
+				],
+				"operationId": "postUser",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UserTo"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/UserTo"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/restaurant-service/restaurant": {
+			"post": {
+				"tags": [
+					"restaurant-controller-impl"
+				],
+				"operationId": "postRestaurant",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/RestaurantTo"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/RestaurantTo"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/ballot-service/ballot": {
+			"post": {
+				"tags": [
+					"ballot-controller-impl"
+				],
+				"operationId": "postBallot",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/BallotTo"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"$ref": "#/components/schemas/BallotTo"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/vote-service/votes": {
+			"get": {
+				"tags": [
+					"vote-controller-impl"
+				],
+				"operationId": "getAllVotes",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"uniqueItems": true,
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/VoteTo"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/user-service/users": {
+			"get": {
+				"tags": [
+					"user-controller-impl"
+				],
+				"operationId": "getAllUsers",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"uniqueItems": true,
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/UserTo"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/restaurant-service/restaurants": {
+			"get": {
+				"tags": [
+					"restaurant-controller-impl"
+				],
+				"operationId": "getAllRestaurants",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"uniqueItems": true,
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/RestaurantTo"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/ballot-service/ballots": {
+			"get": {
+				"tags": [
+					"ballot-controller-impl"
+				],
+				"operationId": "getAllBallots",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"uniqueItems": true,
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/BallotTo"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"BallotTo": {
+				"required": [
+					"allRestaurants",
+					"restaurants",
+					"votes"
+				],
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"restaurants": {
+						"uniqueItems": true,
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/RestaurantTo"
+						}
+					},
+					"votes": {
+						"uniqueItems": true,
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/VoteTo"
+						}
+					},
+					"startDate": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"endDate": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"allRestaurants": {
+						"type": "boolean"
+					}
+				}
+			},
+			"RestaurantTo": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"googleId": {
+						"type": "string"
+					}
+				}
+			},
+			"UserTo": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"externalId": {
+						"type": "string"
+					}
+				}
+			},
+			"VoteTo": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"voter": {
+						"$ref": "#/components/schemas/UserTo"
+					},
+					"voted": {
+						"$ref": "#/components/schemas/RestaurantTo"
+					},
+					"ballot": {
+						"$ref": "#/components/schemas/BallotTo"
+					}
+				}
+			}
+		}
+	}
+}

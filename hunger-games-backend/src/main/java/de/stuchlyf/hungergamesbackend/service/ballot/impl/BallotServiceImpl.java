@@ -6,7 +6,6 @@ import de.stuchlyf.hungergamesbackend.persistence.entity.BallotEty;
 import de.stuchlyf.hungergamesbackend.persistence.repository.BallotEtyRepository;
 import de.stuchlyf.hungergamesbackend.service.ballot.BallotService;
 import de.stuchlyf.hungergamesbackend.exception.EntityNotFoundException;
-import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +17,12 @@ public class BallotServiceImpl implements BallotService {
 
 	private final BallotEtyRepository ballotEtyRepo;
 
-	private final BallotMapper ballotMapper = Mappers.getMapper(BallotMapper.class);
+	private final BallotMapper ballotMapper;
 
 	@Autowired
-	public BallotServiceImpl(BallotEtyRepository ballotEtyRepo) {
+	public BallotServiceImpl(BallotEtyRepository ballotEtyRepo, BallotMapper ballotMapper) {
 		this.ballotEtyRepo = ballotEtyRepo;
+		this.ballotMapper = ballotMapper;
 	}
 
 

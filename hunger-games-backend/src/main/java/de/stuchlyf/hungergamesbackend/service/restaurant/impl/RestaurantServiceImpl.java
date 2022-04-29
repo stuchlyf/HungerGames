@@ -6,7 +6,6 @@ import de.stuchlyf.hungergamesbackend.persistence.entity.RestaurantEty;
 import de.stuchlyf.hungergamesbackend.persistence.repository.RestaurantEtyRepository;
 import de.stuchlyf.hungergamesbackend.service.restaurant.RestaurantService;
 import de.stuchlyf.hungergamesbackend.exception.EntityNotFoundException;
-import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,11 +18,12 @@ public class RestaurantServiceImpl implements RestaurantService {
 	
 	private final RestaurantEtyRepository restaurantEtyRepo;
 	
-	private final RestaurantMapper restaurantMapper = Mappers.getMapper(RestaurantMapper.class);
+	private final RestaurantMapper restaurantMapper;
 	
 	@Autowired
-	public RestaurantServiceImpl(RestaurantEtyRepository restaurantEtyRepo) {
+	public RestaurantServiceImpl(RestaurantEtyRepository restaurantEtyRepo, RestaurantMapper restaurantMapper) {
 		this.restaurantEtyRepo = restaurantEtyRepo;
+		this.restaurantMapper = restaurantMapper;
 	}
 
 

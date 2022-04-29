@@ -1,6 +1,6 @@
 package de.stuchlyf.hungergamesbackend.controller.user;
 
-import de.stuchlyf.hungergamesbackend.common.to.UserTo;
+import de.stuchlyf.hungergamesbackend.to.UserTo;
 import org.springframework.http.ResponseEntity;
 
 import java.util.Set;

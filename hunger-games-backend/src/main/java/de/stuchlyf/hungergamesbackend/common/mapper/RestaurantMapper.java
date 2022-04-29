@@ -1,17 +1,14 @@
 package de.stuchlyf.hungergamesbackend.common.mapper;
 
 import de.stuchlyf.hungergamesbackend.common.bo.RestaurantBo;
-import de.stuchlyf.hungergamesbackend.common.to.RestaurantTo;
+import de.stuchlyf.hungergamesbackend.to.RestaurantTo;
 import de.stuchlyf.hungergamesbackend.persistence.entity.RestaurantEty;
 import org.mapstruct.*;
-import org.mapstruct.factory.Mappers;
 
 import java.util.Collection;
 
-@Mapper(componentModel = "spring", config = BaseConfig.class)
+@Mapper(injectionStrategy = InjectionStrategy.CONSTRUCTOR, componentModel = "spring", config = BaseConfig.class)
 public interface RestaurantMapper {
-
-	RestaurantMapper MAPPER = Mappers.getMapper(RestaurantMapper.class);
 
 	/**
 	 * <b>({@link RestaurantEty} => {@link RestaurantBo})</b><br/>

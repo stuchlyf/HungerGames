@@ -6,7 +6,6 @@ import de.stuchlyf.hungergamesbackend.persistence.entity.UserEty;
 import de.stuchlyf.hungergamesbackend.persistence.repository.UserEtyRepository;
 import de.stuchlyf.hungergamesbackend.service.user.UserService;
 import de.stuchlyf.hungergamesbackend.exception.EntityNotFoundException;
-import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,11 +18,12 @@ public class UserServiceImpl implements UserService {
 
 	private final UserEtyRepository userEtyRepo;
 
-	private final UserMapper userMapper = Mappers.getMapper(UserMapper.class);
+	private final UserMapper userMapper;
 
 	@Autowired
-	public UserServiceImpl(UserEtyRepository userEtyRepo) {
+	public UserServiceImpl(UserEtyRepository userEtyRepo, UserMapper userMapper) {
 		this.userEtyRepo = userEtyRepo;
+		this.userMapper = userMapper;
 	}
 
 

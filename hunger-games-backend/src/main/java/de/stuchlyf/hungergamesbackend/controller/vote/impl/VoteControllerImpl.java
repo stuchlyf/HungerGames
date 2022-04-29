@@ -1,11 +1,10 @@
 package de.stuchlyf.hungergamesbackend.controller.vote.impl;
 
-import de.stuchlyf.hungergamesbackend.common.mapper.VoteMapper;
 import de.stuchlyf.hungergamesbackend.common.mapper.UuidMapper;
-import de.stuchlyf.hungergamesbackend.common.to.VoteTo;
+import de.stuchlyf.hungergamesbackend.common.mapper.VoteMapper;
 import de.stuchlyf.hungergamesbackend.controller.vote.VoteController;
 import de.stuchlyf.hungergamesbackend.service.vote.VoteService;
-import org.mapstruct.factory.Mappers;
+import de.stuchlyf.hungergamesbackend.to.VoteTo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,11 +18,12 @@ import java.util.Set;
 public class VoteControllerImpl implements VoteController {
 
 	private final VoteService voteSvc;
-	private final VoteMapper voteMapper = Mappers.getMapper(VoteMapper.class);
+	private final VoteMapper voteMapper;
 
 	@Autowired
-	public VoteControllerImpl(VoteService voteSvc) {
+	public VoteControllerImpl(VoteService voteSvc, VoteMapper voteMapper) {
 		this.voteSvc = voteSvc;
+		this.voteMapper = voteMapper;
 	}
 
 	@Override

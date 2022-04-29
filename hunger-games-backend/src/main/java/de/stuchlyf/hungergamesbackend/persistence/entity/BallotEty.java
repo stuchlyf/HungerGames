@@ -4,7 +4,7 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -37,10 +37,10 @@ public class BallotEty {
 	private Set<VoteEty> votes = new LinkedHashSet<>();
 	
 	@Column(nullable = false)
-	private LocalDateTime startDate;
+	private OffsetDateTime startDate;
 	
 	@Column(nullable = false)
-	private LocalDateTime endDate;
+	private OffsetDateTime endDate;
 
 	@Override
 	public boolean equals(Object o) {

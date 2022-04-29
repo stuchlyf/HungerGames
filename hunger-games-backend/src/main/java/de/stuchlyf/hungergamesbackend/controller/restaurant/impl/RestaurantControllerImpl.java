@@ -2,10 +2,9 @@ package de.stuchlyf.hungergamesbackend.controller.restaurant.impl;
 
 import de.stuchlyf.hungergamesbackend.common.mapper.RestaurantMapper;
 import de.stuchlyf.hungergamesbackend.common.mapper.UuidMapper;
-import de.stuchlyf.hungergamesbackend.common.to.RestaurantTo;
 import de.stuchlyf.hungergamesbackend.controller.restaurant.RestaurantController;
 import de.stuchlyf.hungergamesbackend.service.restaurant.RestaurantService;
-import org.mapstruct.factory.Mappers;
+import de.stuchlyf.hungergamesbackend.to.RestaurantTo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,11 +18,12 @@ import java.util.Set;
 public class RestaurantControllerImpl implements RestaurantController {
 
 	private final RestaurantService restaurantSvc;
-	private final RestaurantMapper restaurantMapper = Mappers.getMapper(RestaurantMapper.class);
+	private final RestaurantMapper restaurantMapper;
 
 	@Autowired
-	public RestaurantControllerImpl(RestaurantService restaurantSvc) {
+	public RestaurantControllerImpl(RestaurantService restaurantSvc, RestaurantMapper restaurantMapper) {
 		this.restaurantSvc = restaurantSvc;
+		this.restaurantMapper = restaurantMapper;
 	}
 
 	@Override

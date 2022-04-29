@@ -1,19 +1,17 @@
 package de.stuchlyf.hungergamesbackend.common.mapper;
 
 import de.stuchlyf.hungergamesbackend.common.bo.VoteBo;
-import de.stuchlyf.hungergamesbackend.common.to.VoteTo;
+import de.stuchlyf.hungergamesbackend.to.VoteTo;
 import de.stuchlyf.hungergamesbackend.persistence.entity.VoteEty;
 import org.mapstruct.InheritInverseConfiguration;
+import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.factory.Mappers;
 
 import java.util.Collection;
 
-@Mapper(componentModel = "spring", config = BaseConfig.class, uses = {RestaurantMapper.class, UserMapper.class})
+@Mapper(injectionStrategy = InjectionStrategy.CONSTRUCTOR, componentModel = "spring", config = BaseConfig.class, uses = {RestaurantMapper.class, UserMapper.class})
 public interface VoteMapper {
-
-	VoteMapper MAPPER = Mappers.getMapper(VoteMapper.class);
 
 	/**
 	 * <b>({@link VoteEty} => {@link VoteBo})</b><br/>

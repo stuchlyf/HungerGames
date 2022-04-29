@@ -1,6 +1,6 @@
 package de.stuchlyf.hungergamesbackend.controller.ballot;
 
-import de.stuchlyf.hungergamesbackend.common.to.BallotTo;
+import de.stuchlyf.hungergamesbackend.to.BallotTo;
 import org.springframework.http.ResponseEntity;
 
 import java.util.Set;
