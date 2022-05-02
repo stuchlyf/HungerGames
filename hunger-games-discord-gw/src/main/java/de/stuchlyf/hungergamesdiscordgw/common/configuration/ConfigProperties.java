@@ -22,5 +22,7 @@ public class ConfigProperties {
 		
 		private String token;
 		private Character commandPrefix;
+		private String hungerGamesCategoryName;
+		private String hungerGamesRoleName;
 	}
 }
