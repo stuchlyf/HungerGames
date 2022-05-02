@@ -1,13 +1,23 @@
 {
-  "properties": [
-    {
-      "name": "discord.bot.token",
-      "type": "java.lang.String",
-      "description": "Token for the Discord bot."
-    },
-    {
-      "name": "discord.bot.command-prefix",
-      "type": "java.lang.Character",
-      "description": "Prefix for Commands."
-    }
-  ] }
+	"properties": [
+		{
+			"name": "discord.bot.token",
+			"type": "java.lang.String",
+			"description": "Token for the Discord bot."
+		},
+		{
+			"name": "discord.bot.command-prefix",
+			"type": "java.lang.Character",
+			"description": "Prefix for Commands."
+		},
+		{
+			"name": "discord.bot.hunger-games-category-name",
+			"type": "java.lang.String",
+			"description": "Category Name for Ballot Channels."
+		},
+		{
+			"name": "discord.bot.hunger-games-role-name",
+			"type": "java.lang.String",
+			"description": "Role Name for Hunger Games Users."
+		}
+	] }
