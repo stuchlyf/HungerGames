@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 public enum Command {
 	CREATE_BALLOT("create-ballot"),
+	
+	CLOSE_BALLOT("close-ballot"),
 	VOTE("vote"),
 	VERSION("version");
 

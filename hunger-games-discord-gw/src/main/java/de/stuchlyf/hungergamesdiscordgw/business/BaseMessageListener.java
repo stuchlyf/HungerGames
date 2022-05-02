@@ -3,8 +3,6 @@ package de.stuchlyf.hungergamesdiscordgw.business;
 
 import de.stuchlyf.hungergamesdiscordgw.business.command.Command;
 import de.stuchlyf.hungergamesdiscordgw.business.command.handler.CommandHandler;
-import de.stuchlyf.hungergamesdiscordgw.business.command.handler.impl.CreateBallotHandler;
-import de.stuchlyf.hungergamesdiscordgw.business.command.handler.impl.VoteHandler;
 import discord4j.core.object.entity.Message;
 import lombok.*;
 import reactor.core.publisher.Mono;
@@ -23,17 +21,12 @@ public abstract class BaseMessageListener {
 	@Getter
 	private final Character commandPrefix;
 
-	protected BaseMessageListener(Character commandPrefix) {
+	protected BaseMessageListener(Character commandPrefix, List<CommandHandler> commandHandlers) {
 		this.commandPrefix = commandPrefix;
 		this.middlewares = new ArrayList<>();
 		this.handlers = new EnumMap<>(Command.class);
 
-		CommandHandler voteHandler = new VoteHandler();
-
-		CommandHandler createBallotHandler = new CreateBallotHandler("hunger-games-bot-ballots", "HungerGames-Player");
-
-		this.registerHandler(Command.VOTE, voteHandler);
-		this.registerHandler(Command.CREATE_BALLOT, createBallotHandler);
+		commandHandlers.forEach(commandHandler ->  this.registerHandler(commandHandler.getHandlerFor(), commandHandler));
 	}
 
 	public Mono<Void> processCommand(Message eventMessage) {

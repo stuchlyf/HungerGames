@@ -8,20 +8,20 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 @Service
-public class VoteHandler implements CommandHandler {
-
+public class CloseBallotHandler implements CommandHandler {
+	
 	@Getter
 	private final Command handlerFor;
 	
-	public VoteHandler() {
-		this.handlerFor = Command.VOTE;
+	public CloseBallotHandler() {
+		this.handlerFor = Command.CLOSE_BALLOT;
 	}
-
+	
 	@Override
 	public Mono<Void> apply(Message message) {
 		return message
 			.getChannel()
-			.flatMap(channel -> channel.createMessage("ich hab deine mom gebangt"))
+			.flatMap(channel -> channel.createMessage("Ballot Closed!"))
 			.then();
 	}
 }
