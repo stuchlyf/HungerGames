@@ -4,7 +4,6 @@ import de.stuchlyf.hungergamesbackend.common.mapper.BallotMapper;
 import de.stuchlyf.hungergamesbackend.controller.ballot.BallotController;
 import de.stuchlyf.hungergamesbackend.service.ballot.BallotService;
 import de.stuchlyf.hungergamesbackend.to.BallotTo;
-import io.swagger.annotations.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +27,6 @@ public class BallotControllerImpl implements BallotController {
 
 	@Override
 	@GetMapping("ballots")
-	@ApiResponse(code = 200, message = "")
 	public ResponseEntity<Set<BallotTo>> getAllBallots() {
 		final var bos = ballotSvc.readAllBallots();
 		final var tos = new HashSet<>(ballotMapper.ballotBosToBallotTos(bos));
