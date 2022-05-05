@@ -120,7 +120,7 @@
 							</inputSpec>
 							<generatorName>spring</generatorName>
 							<generateApis>false</generateApis>
-							<modelPackage>de.stuchlyf.hungergamesbackend.to</modelPackage>
+							<modelPackage>de.stuchlyf.hungergames.backend.to</modelPackage>
 							<configOptions>
 								<delegatePattern>true</delegatePattern>
 							</configOptions>

@@ -126,8 +126,8 @@
 							</inputSpec>
 							<generatorName>spring</generatorName>
 							<generateApis>false</generateApis>
-							<invokerPackage>de.stuchlyf.hungergamesbackend.client</invokerPackage>
-							<modelPackage>de.stuchlyf.hungergamesbackend.to</modelPackage>
+							<invokerPackage>de.stuchlyf.hungergames.backend.client</invokerPackage>
+							<modelPackage>de.stuchlyf.hungergames.backend.to</modelPackage>
 							<configOptions>
 								<delegatePattern>true</delegatePattern>
 							</configOptions>
