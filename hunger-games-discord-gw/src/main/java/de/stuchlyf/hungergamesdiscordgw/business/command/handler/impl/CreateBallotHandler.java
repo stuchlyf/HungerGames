@@ -14,7 +14,6 @@ import discord4j.rest.util.PermissionSet;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
@@ -32,7 +31,7 @@ public class CreateBallotHandler implements CommandHandler {
 	private final PermissionSet ballotCategoryPermissionSet = PermissionSet.of(Permission.READ_MESSAGE_HISTORY, Permission.SEND_MESSAGES, Permission.VIEW_CHANNEL);
 
 	@Autowired
-	public CreateBallotHandler(ConfigProperties configProperties, RestTemplate restTemplate) {
+	public CreateBallotHandler(ConfigProperties configProperties) {
 		this.categoryName = configProperties.getBot().getHungerGamesCategoryName();
 		this.roleName = configProperties.getBot().getHungerGamesRoleName();
 		
