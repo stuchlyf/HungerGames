@@ -1,0 +1,42 @@
+version: '3.8'
+
+services: 
+  database:
+    image: postgres:14.2-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_DB}
+      PGDATA: '/data/postgres'
+    volumes:
+      - 'database_data:/data/postgres:rw'
+    ports:
+      - '5432:5432/tcp'
+    expose:
+      - '5432/tcp'
+    networks: 
+      - database_tier
+      - default
+  
+  adminer:
+    image: adminer:4.8.1-standalone
+    restart: unless-stopped
+    ports:
+      - '8079:8080/tcp'
+    networks:
+      - database_tier
+  
+  rabbitmq:
+    image: rabbitmq:3.10.0-management-alpine
+    restart: unless-stopped
+    ports:
+      - '5672:5672/tcp'
+      - '15672:15672/tcp'
+
+networks:
+  database_tier:
+    
+
+volumes:
+  database_data:
